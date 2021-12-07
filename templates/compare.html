@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoMart Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/static/css/style.css?{% now "U" %}"/>
+
+  </head>
+  <body>
+  <header>
+
+        <div class="header-1">
+
+            <img src="/static/img/logo.jpeg" alt="Image Load Error" width="85" height="85">
+            <h1 class="head">CoMart</h1>
+
+
+            <form method = "GET" action="/ho" class="search-box-container">
+                <!--<label for="search1" class="fas fa-search"></label>-->            
+                <input type="text" name = "search1" id="search1" placeholder="search here...">
+                <input type="submit" value="Submit">
+            </form>
+
+        </div>
+
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="/#home">Home</a>
+                <a href="/#category">Popular</a>
+                <a href="/#product">Products</a>
+                <a href="/#deal">About Us</a>
+                <a href="/#contact">Contact</a>
+                <a href="/#video">Video</a>
+            </nav>
+
+            <div class="icons">
+                <a href="/cart" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="/account" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+
+    </header>
+      
+      <div class="box-container">
+
+       <div class="box">
+        <img src="{{jiomart.img_source}}" width="200" height="200">
+        </div>
+        <div class="box">
+        <!--{%if jiomart%}-->
+        <h2>JIO-MART</h2>
+        <h3>Name: {{jiomart.name}}</h3>
+        <h3>MRP: {{jiomart.price}}</h3>
+        <h3>Discounted Price: {{jiomart.final_price}}</h3>
+        <h3><a href={{jiomart.link}}>Click Here</a> </h3>
+        {%endif %}
+        
+        <br>
+        </div>
+        </div>
+
+
+        <div class="box-container">
+
+       <div class="box">
+        <img src={{dmart.img_source}} width="200" height="200">
+        </div>
+        <div class="box">
+        <!--{%if dmart%}-->
+        <h2>D MART</h2>
+        <h3>Name: {{dmart.name}}</h3>
+        <h3>MRP: ₹{{dmart.price}}</h3>
+        <h3>Discounted Price: ₹{{dmart.final_price}}</h3>
+        <h3><a href={{dmart.link}}>Click Here</a> </h3>
+        {%endif %}
+        <br>
+        </div>
+        </div>
+
+
+        <div class="box-container">
+
+       <div class="box">
+        <img src={{bb.img_source}} width="200" height="200">
+        </div>
+        <div class="box">
+        <!--{%if bb%}-->
+        <h2>Amazon</h2>
+        <h3>Name: {{bb.name}}</h3>
+        <h3>MRP: {{bb.price}}</h3>
+        <h3>Discounted Price: ₹{{bb.final_price}}</h3>
+        <h3><a href={{bb.link}}>Click Here</a> </h3>
+        {%endif %}
+        
+        <br>
+        </div></div>
+
+        <div class="box-container">
+
+       <div class="box">
+        <img src="{{flipkart.img_source}}",  width="200" height="200">
+        </div>
+        <div class="box">
+        <!--{%if jiomart%}-->
+        <h2>FlipKart</h2>
+        <h3>Name: {{flipkart.name}}</h3>
+        <h3>MRP: {{flipkart.price}}</h3>
+        <h3>Discounted Price: {{flipkart.final_price}}</h3>
+        <h3><a href={{flipkart.link}}>Click Here</a> </h3>
+        {%endif %}
+        
+        <br>
+        </div>
+        </div>
+     
+
+       
+        {% if request.user.is_authenticated %}
+        <form action="" method="POST">
+          {% csrf_token %}
+          <button type="submit">Add to Cart</button>
+        </form>
+        {% endif %}
+        
+        
+    
+
+        
+        
+     
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <a href="#" class="logo"><i class="fas fa-shopping-bag"></i>CoMart</a>
+                <p>Sardar Partel Institute of Technology, Munshi Nagar, Andheri-W, Mumbai-4000058</p>
+                <div class="share">
+                    <a href="https://www.facebook.com/search" class="btn fab fa-facebook-f"></a>
+                    <a href="https://twitter.com/explore" class="btn fab fa-twitter"></a>
+                    <a href="https://www.instagram.com/" class="btn fab fa-instagram"></a>
+                    <a href="https://in.linkedin.com/" class="btn fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>our location</h3>
+                <div class="links">
+                    <a href="#">Mumbai</a>
+                    <a href="#">Kolkata</a>
+                    <a href="#">Delhi</a>
+                    <a href="#">Banglore</a>
+                    <a href="#">Hyderabad</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <div class="links">
+                <a href="/#home">Home</a>
+                <a href="/#category">Popular</a>
+                <a href="/#product">Products</a>
+                <a href="/#deal">About Us</a>
+                <a href="/#contact">Contact</a>
+                <a href="/#video">Video</a>
+                </div>
+            </div>
+            <!---
+        <div class="box">
+                <h3>download app</h3>
+                <div class="links">
+                    <a href="#">google play</a>
+                    <a href="#">window xp</a>
+                    <a href="#">app store</a>
+                </div>
+            </div>
+    
+    -->
+
+
+        </div>
+
+        <h1 class="credit"> created by <span> Comart & Team</span> | all rights reserved! </h1>
+
+    </section>
+    <style>
+    .box-container{
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.box-container .box{
+  border:.1rem solid rgba(0,0,0,.3);
+  border-radius: .5rem;
+  text-align: center;
+  padding:2rem;
+  flex:1 1 25rem;
+}
+
+.box-container .box img{
+  width: 20rem;
+  margin:.5rem 0;
+}
+
+.box-container .box h3{
+  font-size: 3.5rem;
+  color:var(--black);
+}
+
+.box-container .box p{
+  font-size: 2rem;
+  color:#666;
+  padding:.5rem 0;
+}
+    </style>
+    <script src="/static/js/script.js"></script>
+  </body>
+</html>

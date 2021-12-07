@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoMart Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <!--<link rel="stylesheet" href="/static/css/style.css">-->
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+    <!-- header section starts  -->
+
+    <header>
+    
+
+        <div class="header-1">
+
+            <img src="/static/img/logo.jpeg" alt="Image Load Error" width="85" height="85">
+            <h1 class="head">CoMart</h1>
+
+
+            <form method = "GET" action="/ho" class="search-box-container">
+                <!--<label for="search1" class="fas fa-search"></label>-->            
+                <input type="text" name = "search1" id="search1" placeholder="search here...">
+                <input type="submit" value="Search">
+            </form>
+
+        </div>
+
+        <div class="header-2">
+        
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+            
+
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#category">Popular</a>
+                <a href="#product">Products</a>
+                <a href="#deal">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#video">Video</a>
+                
+                
+            </nav>
+
+            <div class="icons">
+                {% if request.user.is_authenticated %}
+                    <a href="#" style="color:hsl(352, 88%, 68%);">
+                        Welcome, {{request.user.first_name}}
+                    </a>
+                    <a href="{% url 'logout' %}" style="color:hsl(352, 88%, 68%);">
+                        logout
+                    </a> 
+                {% endif %}
+
+                <a href="/cart" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="/account" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!--
+        <div class="alert alert-success" role="alert">
+  <h1 class="alert-heading">Your Message has been Send!</h1>
+  
+</div>
+-->
+    
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <div class="image">
+            <img src="/static/img/main.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <span>India's 1st</span>
+            <h3>Daily Necessity Price Comparision</h3>
+            <a href="#" class="btn">get started</a>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- banner section starts  -->
+
+    <section class="video" id="video">
+
+        <h1 class="heading"><span>VIDEO</span></h1>
+        <div class="video">
+            <video width="1050px" controls="controls">
+                <source src="/static/videos/Video.mp4" video="web/mp4">
+            </video>
+
+        </div>
+        <!---
+<div class="banner">
+        <img src="images/banner-2.jpg" alt="">
+        <div class="content">
+            <h3>limited offer</h3>
+            <p>upto 50% off</p>
+            <a href="#" class="btn">check out</a>
+        </div>
+    </div>
+-->
+
+
+    </section>
+
+    <!-- banner section ends -->
+
+    <!-- category section starts  -->
+
+ <section class="category" id="category">
+
+        <h1 class="heading"><span>POPULAR categories</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>Vegetables</h3>
+                <p>upto 50% off</p>
+                <img src="/static/images/category-1.png" alt="">
+                <a href="#" class="btn">Explore</a>
+            </div>
+            <div class="box">
+                <h3>Juice</h3>
+                <p>upto 44% off</p>
+                <img src="/static/images/category-2.png" alt="">
+                <a href="#" class="btn">Explore</a>
+            </div>
+            <div class="box">
+                <h3>Meat</h3>
+                <p>upto 35% off</p>
+                <img src="/static/images/category-3.png" alt="">
+                <a href="#" class="btn">Explore</a>
+            </div>
+            <div class="box">
+                <h3>Fruits</h3>
+                <p>upto 12% off</p>
+                <img src="/static/images/category-4.png" alt="">
+                <a href="#" class="btn">Explore</a>
+            </div>
+
+        </div>
+
+</section>
+        
+
+    <!-- category section ends -->
+
+    <!-- product section starts  -->
+
+    <section class="product" id="product">
+
+        <div class="header-1">
+            <h1 class="heading"><span>Products</span></h1>
+
+            <form method = "GET" action="/ho" class="search-box-container">
+                <!--<label for="search1" class="fas fa-search"></label>-->            
+                <input type="text" name = "search1" id="search1" placeholder="Search For Products">
+                <input type="submit" value="Submit">
+            </form>
+
+        </div>
+        <div class="box-container">
+
+            <div class="box">
+                <!--
+            <span class="discount">-33%</span>
+           <div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+        -->
+                <img src="/static/images/product-1.png" alt="">
+                <h3> Banana</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹90 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho/?search1=banana" class="search-box-container">
+                <!--<label for="search1" class="fas fa-search"></label>-->            
+                
+                <input type="submit" class="btn" name = 'search1' product="banana" value="banana">
+                </form>
+                <!--<a href="compare.html" class="btn">Compare</a>-->
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-30%</span>-->
+    
+    
+                <img src="/static/img/ata.jpeg" alt="">
+                <h3>Wheat</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                 <form method = "GET" action="/ho/?search1=wheat" class="search-box-container">
+                           
+                
+                <input type="submit" class="btn" name = 'search1' product="Wheat" value="Wheat 10Kg">
+                </form>
+            </div>
+    
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-30%</span>-->
+    
+    
+                <img src="/static/img/rice.jpeg" alt="">
+                <h3>Rice</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">
+                           
+                
+                <input type="submit" class="btn" name = 'search1' product="Rice" value="Rice 10Kg">
+                </form>
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+        <span class="discount">-45%</span>-->
+
+
+                <img src="/static/images/product-2.png" alt="">
+                <h3>Organic Tomato</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">
+                <input type="submit" class="btn" name = 'search1' product="tomato" value="tomato">
+                </form>
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+        <span class="discount">-52%</span>-->
+
+
+                <img src="/static/images/product-3.png" alt="">
+                <h3>Organic Orange</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">                
+                <input type="submit" class="btn" name = 'search1' product="orange" value="orange">
+                </form>
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-13%</span>-->
+
+
+                <img src="/static/images/product-4.png" alt="">
+                <h3>Natural Mild</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="natural mild" value="natural mild">
+                </form>
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-20%</span>-->
+
+
+                <img src="/static/images/product-5.png" alt="">
+                <h3>Organic Grapes</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="grapes" value="grapes">
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+        <span class="discount">-29%</span>-->
+
+
+                <img src="/static/images/product-6.png" alt="">
+                <h3>Natural Almonds</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="almonds" value="almonds">
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-55%</span>-->
+
+
+                <img src="/static/images/product-7.png" alt="">
+                <h3>Organic Apple</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="apple" value="apple">
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+         <span class="discount">-30%</span>-->
+
+
+                <img src="/static/images/product-8.png" alt="">
+                <h3>Natural Butter</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="butter" value="butter">
+            </div>
+
+            <div class="box">
+                <!--<div class="icons">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-share"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+        <span class="discount">-40%</span>-->
+
+
+                <img src="/static/images/product-9.png" alt="">
+                <h3>Organic Carrot</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price"> ₹50 <span> ₹80 </span> </div>
+                <div class="quantity">
+                    <span>quantity : </span>
+                    <input type="number" min="1" max="1000" value="1">
+                    <span> /kg </span>
+                </div>
+                <form method = "GET" action="/ho" class="search-box-container">        
+                <input type="submit" class="btn" name = 'search1' product="grapes" value="grapes">
+            </div>
+
+        </div>
+
+        
+
+    </section>
+
+    <!-- product section ends -->
+
+    <!-- deal section starts  -->
+
+    <section class="deal" id="deal">
+
+        <div class="content">
+
+            <h3 class="title">About us</h3>
+            <p>In situations like this pandemic, where people are supposed to stay at home and work from home, going out to buy groceries and daily needs is risky. Also browsing for products from one website to other for cheaper prices and availability can be hectic. Providing a way to get the products at cheaper and best prices.</p>
+            
+            <a href="#" class="btn">Know More</a>
+
+        </div>
+
+    </section>
+
+    <!-- deal section ends -->
+
+    <!-- contact section starts  -->
+
+    <section class="contact" id="contact">
+
+        <h1 class="heading"> <span>Contact us </span> </h1>
+
+        <form action="" method = 'form'>
+
+            <div class="inputBox">
+                <input type="text" placeholder="name">
+                <input type="email" placeholder="email">
+            </div>
+
+            <div class="inputBox">
+                <input type="number" placeholder="number">
+                <input type="text" placeholder="subject">
+            </div>
+
+            <textarea placeholder="message" name="" id="" cols="30" rows="10"></textarea>
+
+            <input type="submit" value="send message" class="btn">
+
+        </form>
+
+    </section>
+
+    <!-- contact section ends -->
+
+    <!-- newsletter section starts  -->
+    <!--
+<section class="newsletter">
+
+    <h3>subscribe us for latest updates</h3>
+
+    <form action="">
+        <input class="box" type="email" placeholder="enter your email">
+        <input type="submit" value="subscribe" class="btn">
+    </form>
+
+</section>
+
+-->
+
+
+    <!-- newsletter section ends -->
+
+    <!-- footer section starts  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <a href="#" class="logo"><i class="fas fa-shopping-bag"></i>CoMart</a>
+                <p>Sardar Partel Institute of Technology, Munshi Nagar, Andheri-W, Mumbai-4000058</p>
+                <div class="share">
+                    <a href="https://www.facebook.com/search" class="btn fab fa-facebook-f"></a>
+                    <a href="https://twitter.com/explore" class="btn fab fa-twitter"></a>
+                    <a href="https://www.instagram.com/" class="btn fab fa-instagram"></a>
+                    <a href="https://in.linkedin.com/" class="btn fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Our Location</h3>
+                <div class="links">
+                    <a href="#">Mumbai</a>
+                    <a href="#">Kolkata</a>
+                    <a href="#">Delhi</a>
+                    <a href="#">Banglore</a>
+                    <a href="#">Hyderabad</a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Quick Links</h3>
+                <div class="links">
+                <a href="#home">Home</a>
+                <a href="#category">Popular</a>
+                <a href="#product">Products</a>
+                <a href="#deal">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#video">Video</a>
+                </div>
+            </div>
+            <!---
+    <div class="box">
+            <h3>download app</h3>
+            <div class="links">
+                <a href="#">google play</a>
+                <a href="#">window xp</a>
+                <a href="#">app store</a>
+            </div>
+        </div>
+
+-->
+
+
+        </div>
+
+        <h1 class="credit"> Created by <span> CoMart & Team</span> | All rights reserved! </h1>
+
+    </section>
+
+    <!-- footer section ends -->
+    
+
+
+    <!-- custom js file link  -->
+    <script src="/static/js/script.js"></script>
+
+</body>
+
+</html>
